@@ -11,20 +11,27 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 
 import os
 
-# Attempt 1
-# print('os.path.dirname(__file__) = ', os.path.dirname(__file__))
-# filename2 = os.path.join(os.path.dirname(__file__), 'foo.txt')
-# print('filename2 = ', filename2)
+print('absolute path', os.path.dirname(os.path.abspath(__file__)))
+filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'foo.txt')
+print('filename = ', filename)
 
-# Attempt 2
-# file = open('/src/foo.txt', 'r')
-# read_data = file.read()
-# print(read_data)
-# file.close()
+with open(filename, 'r') as f:
+    read_data = f.read()
+    print(read_data)
 
 # Open up a file called "bar.txt" (which doesn't exist yet) for
 # writing. Write three lines of arbitrary content to that file,
 # then close the file. Open up "bar.txt" and inspect it to make
 # sure that it contains what you expect it to contain
 
-# YOUR CODE HERE
+print('absolute path', os.path.dirname(os.path.abspath(__file__)))
+filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bar.txt')
+print('filename = ', filename)
+
+with open(filename, 'w') as f:
+    write_data = "An ocean voyage.\nAs waves break over the bow,\nthe sea welcomes me."
+    read_data = f.write(write_data)
+
+with open(filename, 'r') as f:
+    read_data = f.read()
+    print(read_data)
