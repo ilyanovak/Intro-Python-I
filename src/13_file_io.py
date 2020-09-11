@@ -11,27 +11,25 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 
 import os
 
-print('absolute path', os.path.dirname(os.path.abspath(__file__)))
-filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'foo.txt')
-print('filename = ', filename)
+# print('absolute path', os.path.dirname(os.path.abspath(__file__)))
+# filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'foo.txt')
+# print('filename = ', filename)
 
-with open(filename, 'r') as f:
-    read_data = f.read()
-    print(read_data)
+with open('foo.txt') as f:
+    print(f.read())
 
 # Open up a file called "bar.txt" (which doesn't exist yet) for
 # writing. Write three lines of arbitrary content to that file,
 # then close the file. Open up "bar.txt" and inspect it to make
 # sure that it contains what you expect it to contain
 
-print('absolute path', os.path.dirname(os.path.abspath(__file__)))
-filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bar.txt')
-print('filename = ', filename)
+# print('absolute path', os.path.dirname(os.path.abspath(__file__)))
+# filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'bar.txt')
+# print('filename = ', filename)
 
-with open(filename, 'w') as f:
+with open('bar.txt', 'w') as f:
     write_data = "An ocean voyage.\nAs waves break over the bow,\nthe sea welcomes me."
-    read_data = f.write(write_data)
+    f.write(write_data)
 
-with open(filename, 'r') as f:
-    read_data = f.read()
-    print(read_data)
+with open('bar.txt') as f:
+    print(f.read())

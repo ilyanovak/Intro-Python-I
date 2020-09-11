@@ -13,10 +13,10 @@ for cli in sys.argv:
     print(cli)
 
 # Print out the OS platform you're using:
-print(sys.getwindowsversion())
+print('sys.platform', sys.platform)
 
 # Print out the version of Python you're using:
-print(sys.version_info)
+print(sys.version)
 
 
 import os

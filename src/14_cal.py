@@ -31,18 +31,40 @@ import sys
 import calendar
 from datetime import datetime
 
-a_string = input("Enter two integers, one for month and a second for year, separated by a space:")
+# a_string = input("Enter two integers, one for month and a second for year, separated by a space:")
 
-numbers = []
-for word in a_string.split():
-   if word.isdigit():
-      numbers.append(int(word))
+# numbers = []
+# for word in a_string.split():
+#    if word.isdigit():
+#       numbers.append(int(word))
 
-if len(a_string) == 0:
-    print(calendar.prmonth(datetime.now().year, datetime.now().month))
-elif len(numbers) == 1:
-    print(calendar.prmonth(datetime.now().year, numbers[0]))
-elif len(numbers) == 2:
-    print(calendar.prmonth(numbers[1], numbers[0]))
+# if len(a_string) == 0:
+#     print(calendar.prmonth(datetime.now().year, datetime.now().month))
+# elif len(numbers) == 1:
+#     pass
+#     # print(calendar.prmonth(datetime.now().year, numbers[0]))
+# elif len(numbers) == 2:
+#     print(calendar.prmonth(numbers[1], numbers[0]))
+# else:
+#     print("ERROR: The expected input format is two integers, one for month and a second for year, separated by a space")
+
+args = sys.argv
+now = datetime.now()
+month = now.month
+year = now.year
+
+if(len(args) == 1):
+     pass
+# user inputs one argument
+elif(len(args) == 2):
+     month = int(args[1])
+elif(len(args) == 3):
+    month = int(args[1])
+    year = int(args[2])
 else:
-    print("ERROR: The expected input format is two integers, one for month and a second for year, separated by a space")
+     print("wrong format")
+if month < 1 or month > 12:
+     print("error: Invalid month")
+
+tc = calendar.TextCalendar()
+tc.prmonth(year, month)
